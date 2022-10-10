@@ -1,0 +1,22 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '7.2.0' apply false
+    id 'com.android.library' version '7.2.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+    id 'org.jetbrains.kotlinx.kover' version "0.6.1"
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+koverMerged {
+    enable()
+    filters {
+        classes {
+            excludes.addAll(
+                    "id.firdaus1453.pockover.BuildConfig"
+            )
+        }
+    }
+}
